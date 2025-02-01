@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none; 
+}
+
+a:hover, button:hover {
+    opacity: 60%;
+}
+
 :root {
     font-size: 62.5%;
 
@@ -25,181 +33,276 @@
     --neutro-300: #8D8D8D;
     --neutro-400: #424242;
     --neutro-black: #000000;
+
+    --capa-grande: url('./src/capa-principal.jpg');
+    --capa-pequena: url('./src/Subtract.jpg');
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-
     font-family: "Inter", sans-serif;
     font-size: 1.6rem;
-
-    width: 360px;
-    margin: auto;
-
+    text-align: center;
 }
 
-header {
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-    
-    padding: 1.6rem;    
-}
-
-.hiden {
+.hidden {
     display: none;
 }
 
-header a {
-    list-style: none;
-    text-decoration: none;
-
+header {
     display: flex;
-    align-items: baseline;
+    justify-content: space-between;
+    padding: 3.2rem 4.8rem;
+
+    /* position: absolute; */
+    width: 100%;
 }
 
-header span {
+header a span, footer a span {
     font-family: "Abril Fatface", serif;
-    color: var(--telha-200);
-    font-weight: 300;
-}
-
-header span:nth-child(1), header span:nth-child(3) {
     font-size: 3.6rem;
+    letter-spacing: -.5rem;
+
+    color: rgb(0, 0, 0);
 }
 
-header span:nth-child(2) {
+header a span:nth-child(2), footer a span:nth-child(2) {
     font-size: 1.8rem;
 }
 
 header button {
-    border: none;
     background-color: transparent;
-
-    > img {
-        width: 2.4rem;
-        height: 2.4rem;
-    }
+    border: none;
 }
 
-#inicio {
-    margin-top: -8rem;
-}
-
-#inicio div {
-    position: absolute;
-
-    width: 36.0rem;
-    height: 100%;
-
+.navbar {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    color: rgb(0, 0, 0);
+}
+  
+.menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
-#inicio div h1 {
-    font-family: "Abril Fatface", serif;
-    font-size: 4rem;
-    font-weight: 300;
-    color: var(--neutro-100);
-    text-shadow: 2px 4px 16px rgba(0, 0, 0, 0.7);
-}
-
-#inicio div p {
-    font-size: 2.4rem;
-    font-weight: 600;
-    color: var(--telha-100);
-    text-shadow: 2px 4px 16px rgba(0, 0, 0, 0.5);
-}
-
-#inicio img {
-    position: relative;
-    z-index: -1;
-
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-
-    filter: brightness(85%);
-}
-
-#contagem {
-    /* position: absolute; */
-
-    width: 36.0rem;
-
+.menu {
+    list-style: none;
+    padding: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 20px;
 }
 
-#contagem h2 {
-    font-family: "Abril Fatface", serif;
-    font-size: 3.2rem;
-    color: var(--telha-200);
-    font-weight: 300;
+.menu li a {
+    color: #A76747;
+    font-weight: 400;
+}
+
+.menu li a.active {
+    color: #A76747;
+    font-weight: 700;
+}
+
+#inicio > div > div {
+    display: grid;
+    place-content: center;
     text-align: center;
-    
-}
 
-#contagem #timer {
-    display: flex;
-    gap: .8rem;
-}
-
-#contagem img {
-    position: relative;
-    z-index: -1;
-
+    /* position: absolute; */
+    height: 100vh;
     width: 100%;
-    object-fit: cover;
-
-    margin-top: -6.5rem;
+    background: var(--capa-grande) no-repeat center 10%/cover;
 }
 
-#welcome {
-    width: 36.0rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#welcome h2 {
-    margin-top: 4.8rem;
-
+#inicio > div > div > h1 {
     font-family: "Abril Fatface", serif;
-    font-size: 3.2rem;
-    color: var(--telha-200);
+    font-size: 4.8vw;
+    color: #fff;
     font-weight: 300;
+
+    /* -webkit-text-stroke: .4px #A76747;
+    text-stroke: 1px #fff; */
 }
 
-#location {
+#inicio span {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--neutro-white);
+}
+
+#countdown {
+    margin: auto;
+}
+
+.countdown-container {
     display: flex;
-    flex-direction: column;
     gap: 1.6rem;
+
+    background-color: #A76747;
+    padding: .8rem;
+    border-radius: .8rem;
 }
 
-#location h2 {
-    margin-top: 4.8rem;
-
-    font-family: "Abril Fatface", serif;
-    font-size: 3.2rem;
-    color: var(--telha-200);
-    font-weight: 300;
+/* Estilos para a seção Detalhes da Cerimônia */
+.ceremony-section {
+    padding: 4rem 2.4rem;
+    background-color: #fff;
+    text-align: center;
 }
 
-#location p {
-    text-align: justify;
+.ceremony-section h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    color: #333;
 }
 
-#location div:nth-child(2), #location div:nth-child(3) {
+.ceremony-details {
     display: flex;
-    align-items: center;
-    gap: .8rem;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.ceremony-info {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+.ceremony-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.ceremony-info p {
+    font-size: 1.6rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.ceremony-map {
+    margin: 0 auto;
+    max-width: 800px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para a seção Confirmar Presença */
+.confirmation-section {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.confirmation-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.confirmation-form {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background-color: #555;
+}
+
+.confirmation-message {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+}
+
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        font-size: 2.5rem;
+    }
+  
+    .menu {
+        display: none;
+        flex-direction: column;
+        gap: 2.4rem;
+        background-color: #fff;
+        position: absolute;
+        top: 7.9rem;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 2.4rem;
+        align-items: baseline;
+    }
+  
+    .menu.active {
+        display: flex;
+    }
+
+    #inicio > div > div {
+        background: var(--capa-pequena) no-repeat center 10%/cover;
+    }
+
+    header {
+        padding: 1.6rem;
+    }
+
+    #inicio > div > div > h1 {
+        font-size: 4.4rem;
+    }
+
+    .countdown-container {
+        gap: .8rem;
+        padding: .8rem;
+        border-radius: .8rem;
+        margin: 0 2.4rem;
+    }
+    
+    .ceremony-details {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .ceremony-info {
+        width: 100%;
+    }
+    
 }

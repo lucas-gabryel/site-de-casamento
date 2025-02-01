@@ -2,12 +2,14 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alonso & Erika</title>
     <link rel="stylesheet" href="styles.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -17,83 +19,119 @@
             <span>E</span>
         </a>
 
-        <button id="menu-mobile">
-            <img src="./src/svg/menu-sanduiche.svg" alt="Menu sanduiche">
-        </button>
-
-        <nav id="menu-computer" class="hiden">
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Cerimônia</a></li>
-                <li><a href="#">Presentes</a></li>
-                <li><a href="#">Confirmar Presença</a></li>
-            </ul>
-        </nav>
+        <nav class="navbar">
+            <div class="menu-icon" id="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+                <ul class="menu" id="menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#historia">Nossa História</a></li>
+                    <li><a href="#presentes">Presentei-nos</a></li>
+                    <li><a href="#cerimonia">Cerimônia</a></li>
+                    <li><a href="#confirmar">Confirmar Presença</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+          </nav>
     </header>
     <main>
         <section id="inicio">
             <div>
-                <h1>Alonso & Erika</h1>
-                <p>12/04/2025</p>
-            </div>
-            <img src="./src/capa-principal.jpg" alt="Foto de Erika e Alonso">
-        </section>
-        <section id="contagem">
-            <div>
-                <h2>Contagem Regressiva</h2>
-                <div id="timer">
-                    <div>
-                        <span>00</span>
-                        <span>dias</span>
-                    </div>
-                    <div>
-                        <span>00</span>
-                        <span>horas</span>
-                    </div>
-                    <div>
-                        <span>00</span>
-                        <span>minutos</span>
-                    </div>
-                    <div>
-                        <span>00</span>
-                        <span>segundos</span>
-                    </div>
+                <div>
+                    <h1>Alonso & Erika</h1>
+                    <section id="countdown">
+                        <div class="countdown-container">
+                          <div>
+                            <span id="days">00</span>
+                            <span>Dias</span>
+                          </div>
+                          <div>
+                            <span id="hours">00</span>
+                            <span>Horas</span>
+                          </div>
+                          <div>
+                            <span id="minutes">00</span>
+                            <span>Minutos</span>
+                          </div>
+                          <div>
+                            <span id="seconds">00</span>
+                            <span>Segundos</span>
+                          </div>
+                        </div>
+                    </section>
                 </div>
             </div>
-            <img class="hiden" src="./src/svg/Ellipse-mobile.svg">
         </section>
-        <section id="welcome">
-            <h2>Aguardamos Ansiosamente</h2>
-            <img src="./src/comedoria.png" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquam mi id augue ultrices, in tempus elit tristique. Aliquam ultrices sem non.</p>
+
+        <section id="cerimonia" class="ceremony-section">
+            <h2>Detalhes da Cerimônia</h2>
+                <div class="ceremony-details">
+                    <div class="ceremony-info">
+                        <h3>Data e Horário</h3>
+                        <p>14 de Abril de 2025</p>
+                        <p>18:00 horas</p>
+                    </div>
+                    <div class="ceremony-info">
+                        <h3>Local</h3>
+                        <p>Restaurante Comedoria Escritório</p>
+                        <p>Rua João Ribeiro Lima, 182 - Centro, Arapiraca - AL</p>
+                    </div>
+                </div>
+            
+            <div class="ceremony-map">
+                <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d983.0374649303117!2d-36.659836132945294!3d-9.753371027948807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x705d5d3a9f3a87d%3A0x5b2b171bf4990c98!2sRestaurante%20Comedoria%20Escrit%C3%B3rio!5e0!3m2!1spt-BR!2sbr!4v1738373468571!5m2!1spt-BR!2sbr" 
+                width="100%"
+                height="400"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+                </iframe>
+            </div>
         </section>
-        <section id="location">
+
+        <section id="confirmar" class="confirmation-section">
+            <h2>Confirmar Presença</h2>
+                <form id="confirmation-form" class="confirmation-form">
+                    <div class="form-group">
+                        <label for="name">Nome completo:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <button type="submit" class="submit-button">Confirmar Presença</button>
+                    <p id="resultado"></p>
+                </form>
+            <p id="confirmation-message" class="confirmation-message"></p>
+        </section>
+
+        <section id="contato">
             <div>
-                <h2>Local da cerimônia</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquam mi id augue ultrices, in tempus elit tristique. Aliquam ultrices sem non.</p>
+                <h2>Entre em contato</h2>
+                <p>Se tiver qualquer dúvida ou precisar de mais informações sobre a cerimônia, o local, ou qualquer outro detalhe do grande dia, não hesite em entrar em contato conosco!</p>
+                <button>
+                    <i class="ph ph-whatsapp-logo"></i>
+                    <span>Enviar mensagem pelo WhatsApp</span>
+                </button>
             </div>
-            <div>
-                <span>
-                    <img src="./src/svg/clock.svg" alt="">
-                </span>
-                <span>
-                    <p>12 de abril de 2025</p>
-                    <p>12h00min</p>
-                </span>
-            </div>
-            <div>
-                <span>
-                    <img src="./src/svg/map-pin.svg" alt="">
-                </span>
-                <span>
-                    <p>Restaurante Comedoria Escritório</p>
-                    <p>R. João Ribeiro Lima, 182 - Centro,<br> Arapiraca - AL</p>
-                </span>
-            </div>
-            <!-- <script async
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfl8THuFTEqWDI6hwa8KSI9mbgEI0u8Ms&loading=async&libraries=places&callback=initMap">
-            </script> -->
         </section>
     </main>
+    <footer>
+        <a href="#">
+            <span>A</span>
+            <span>&</span>
+            <span>E</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Nossa História</a></li>
+                <li><a href="#">Lista de Presentes</a></li>
+                <li><a href="#">Detalhes do Evento</a></li>
+                <li><a href="#">Confirmar Presença</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <script src="./countdown.js"></script>
+    <script src="./menu.js"></script>
+    <script src="./presenca.js"></script>
 </body>
 </html>
