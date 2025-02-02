@@ -62,6 +62,18 @@
             </div>
         </section>
 
+        <section id="confirmar" class="confirmation-section">
+            <h2>Confirmar Presença</h2>
+                <form id="confirmation-form" class="confirmation-form">
+                    <div class="form-group">
+                        <label for="name">Nome completo:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <button type="submit" class="submit-button">Confirmar Presença</button>
+                    <p id="resultado"></p>
+                </form>
+        </section>
+
         <section id="cerimonia" class="ceremony-section">
             <h2>Detalhes da Cerimônia</h2>
                 <div class="ceremony-details">
@@ -89,36 +101,37 @@
             </div>
         </section>
 
-        <section id="confirmar" class="confirmation-section">
-            <h2>Confirmar Presença</h2>
-                <form id="confirmation-form" class="confirmation-form">
+        <!-- Seção Entrar em Contato -->
+        <section id="contato" class="contact-section">
+            <h2>Entrar em Contato</h2>
+            <div class="contact-form">
+                <form id="contact-form">
                     <div class="form-group">
-                        <label for="name">Nome completo:</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="contact-message">Digite sua mensagem:</label>
+                        <textarea id="contact-message" name="contact-message" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="submit-button">Confirmar Presença</button>
-                    <p id="resultado"></p>
+                    <a 
+                        href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20entrar%20em%20contato%20sobre%20o%20casamento." 
+                        target="_blank" 
+                        class="whatsapp-button">
+        
+                        <i class="fab fa-whatsapp"></i> 
+                        Enviar Mensagem
+                    </a>
                 </form>
-            <p id="confirmation-message" class="confirmation-message"></p>
-        </section>
-
-        <section id="contato">
-            <div>
-                <h2>Entre em contato</h2>
-                <p>Se tiver qualquer dúvida ou precisar de mais informações sobre a cerimônia, o local, ou qualquer outro detalhe do grande dia, não hesite em entrar em contato conosco!</p>
-                <button>
-                    <i class="ph ph-whatsapp-logo"></i>
-                    <span>Enviar mensagem pelo WhatsApp</span>
-                </button>
             </div>
         </section>
     </main>
+
     <footer>
-        <a href="#">
-            <span>A</span>
-            <span>&</span>
-            <span>E</span>
-        </a>
+        <div>
+            <a href="#">
+                <span>A</span>
+                <span>&</span>
+                <span>E</span>
+            </a>
+            <p>© 2025 Casamento de Alonso & Erika. Todos os direitos reservados.</p>
+        </div>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -126,7 +139,7 @@
                 <li><a href="#">Lista de Presentes</a></li>
                 <li><a href="#">Detalhes do Evento</a></li>
                 <li><a href="#">Confirmar Presença</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="#">Entre em Contato</a></li>
             </ul>
         </nav>
     </footer>
