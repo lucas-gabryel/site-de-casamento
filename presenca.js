@@ -1,3 +1,7 @@
+const tratarNome = (nome) => {
+  return nome.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+};
+
 async function verificarPresenca(event) {
   event.preventDefault(); // Impede o recarregamento da página
 
@@ -9,28 +13,33 @@ async function verificarPresenca(event) {
     return;
   }
 
-  try {
-    // URL do Google Apps Script
-    const url = 'https://script.google.com/macros/s/AKfycbzIjI1_HinciDUe2C3Lg46MAkG27B17Ii4ZdPmV7qErx31FH1rFB14e2vM55fuUFgj8/exec';
+  const nomeTratado = tratarNome(nomeCompleto);
 
-    // Requisição POST (sem CORS)
-    await fetch(url, {
+  try {
+    // URL do proxy (substitua pelo endereço do seu proxy)
+    const url = 'http://localhost:3000/confirmar-presenca';
+
+    // Envia os dados para o proxy
+    const response = await fetch(url, {
       method: 'POST',
-      body: JSON.stringify({ nome: nomeCompleto }),
+      body: JSON.stringify({ nome: nomeTratado }),
       headers: {
         'Content-Type': 'application/json',
       },
-      mode: 'no-cors', // Modo no-cors para evitar bloqueio de CORS
     });
 
-    // Requisição GET (com CORS) para verificar o status
-    const getUrl = `${url}?nome=${encodeURIComponent(nomeCompleto)}`;
-    const response = await fetch(getUrl, {
-      method: 'GET',
-    });
+    // Adicionando log para verificar o conteúdo da resposta
+    const data = await response.json();
+    console.log(data); // Verifique a resposta do servidor
 
-    const message = await response.text();
-    resultado.textContent = message; // Exibe a mensagem de confirmação ou erro
+    // Exibe a mensagem de confirmação ou erro
+    if(data.message == "Presença confirmada!") {
+      resultado.classList.add("positive")
+    } else {
+      resultado.classList.remove("positive")
+    }
+
+    resultado.textContent = data.message;  // Aqui usamos data.message, que vem do JSON retornado
   } catch (error) {
     console.error('Erro ao verificar presença:', error);
     resultado.textContent = "Erro ao verificar presença. Tente novamente mais tarde.";
