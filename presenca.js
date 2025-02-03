@@ -17,7 +17,7 @@ async function verificarPresenca(event) {
 
   try {
     // URL do proxy (substitua pelo endereço do seu proxy)
-    const url = 'http://localhost:3000/confirmar-presenca';
+    const url = 'https://proxy-site-q4yqm1m38-lucas-gabryels-projects.vercel.app';
 
     // Envia os dados para o proxy
     const response = await fetch(url, {
